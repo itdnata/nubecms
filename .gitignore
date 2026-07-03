@@ -42,3 +42,6 @@ next-env.d.ts
 
 # permitir la plantilla de entorno
 !.env.example
+
+# Guía local con credencial — NO versionar
+CLAUDE.md
