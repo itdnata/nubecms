@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getCourses } from "@/lib/data";
 import { TopBack, SectionLabel } from "../_components/ui";
 
-export const revalidate = 300;
+export const revalidate = 120;
 
 export default async function LaboratorioPage() {
   const courses = await getCourses();

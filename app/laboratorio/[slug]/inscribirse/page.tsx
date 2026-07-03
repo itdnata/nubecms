@@ -4,7 +4,7 @@ import { TopBack } from "../../../_components/ui";
 import { Highlight } from "../../../_components/Highlight";
 import { RegistroForm } from "./RegistroForm";
 
-export const revalidate = 300;
+export const revalidate = 120;
 
 export default async function InscribirsePage({
   params,

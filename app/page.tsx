@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Highlight } from "./_components/Highlight";
 import { getMediaByPath } from "@/lib/data";
 
-export const revalidate = 300;
+export const revalidate = 120;
 
 export default async function HomePage() {
   const masthead = await getMediaByPath("covers/portada-nubes-wide.png");

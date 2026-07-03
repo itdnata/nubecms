@@ -3,7 +3,7 @@ import { getLetters } from "@/lib/data";
 import { TopBack } from "../_components/ui";
 import { Highlight } from "../_components/Highlight";
 
-export const revalidate = 300;
+export const revalidate = 120;
 
 const COMO = [
   { n: "01 · Especular", t: "Parte de una pregunta imposible y síguela hasta donde te lleve." },
