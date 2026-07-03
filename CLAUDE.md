@@ -56,6 +56,19 @@ No hay Homebrew, `psql`, `supabase` CLI ni `gh`: las migraciones corren con el p
 - **Caché/ISR**: las páginas exportan `export const revalidate = 300` (estáticas servidas
   por el CDN de Vercel; se revalidan cada 5 min o on-demand con `revalidatePath`). NO usar
   `force-dynamic` salvo que una vista deba ser siempre fresca.
+- **Estrategia por tipo de ruta** (decidido para contenido que CRECE por Supabase, sin redeploy):
+  - Rutas sin parámetros (`/`, `/textos`, `/laboratorio`, `/cartas`, `/cartas/enviar`) se
+    prerenderizan estáticas en build (`○`) y revalidan cada 5 min.
+  - Rutas con parámetro (`textos/[slug]`, `cartas/[id]`, `laboratorio/[slug]`) se dejan en
+    **ISR on-demand** (`ƒ`): el primer visitante las renderiza y quedan cacheadas 5 min.
+  - **NO usar `generateStaticParams`** aquí: prerenderizaría solo los slugs existentes al
+    hacer build y acoplaría el build a la BD; como los posts/cartas nuevos llegan por Supabase
+    sin redeploy, el on-demand ISR ya los sirve rápido sin rebuild. Solo tendría sentido si el
+    contenido viviera en el repo (MDX) y los cambios requirieran deploy.
+  - **Frescura tras editar en Supabase**: los cambios se ven en ≤5 min (el TTL). Si se quiere
+    reflejo inmediato, opción futura: un *Database Webhook* de Supabase → una route handler
+    `/api/revalidate` que llame `revalidatePath`/`revalidateTag` (requiere un secreto compartido).
+    Subir/bajar el TTL es el otro dial: menor = más fresco y más regeneraciones; mayor = menos.
 - La barra superior "editor" (los 3 círculos + cursor parpadeante) vive en `app/layout.tsx`
   y aparece en todas las pantallas — es parte del diseño, no quitarla.
 

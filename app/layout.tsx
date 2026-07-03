@@ -57,7 +57,7 @@ function ChromeBar() {
         <span style={{ width: 11, height: 11, borderRadius: "50%", background: "#7B9ACC" }} />
       </div>
       <span style={{ fontSize: 12.5, color: "#6B7280", letterSpacing: "0.02em" }}>
-        a-vuelo-de-nube.html
+        a vuelo de nube
       </span>
       <span
         style={{
