@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Highlight } from "./_components/Highlight";
 import { getMediaByPath } from "@/lib/data";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 export default async function HomePage() {
   const masthead = await getMediaByPath("covers/portada-nubes-wide.png");
@@ -147,10 +147,9 @@ export default async function HomePage() {
           style={{
             marginTop: 0,
             background: "#2C303A",
-            width: 1190,
+            width: "100vw",
             marginLeft: "calc(50% - 50vw)",
             cursor: "pointer",
-            height: 624,
           }}
         >
           <div
@@ -158,8 +157,6 @@ export default async function HomePage() {
               maxWidth: 1120,
               margin: "0 auto",
               padding: "62px 40px",
-              width: 1102,
-              height: 613,
             }}
           >
             <div
@@ -174,9 +171,7 @@ export default async function HomePage() {
                 marginBottom: 30,
               }}
             >
-              <span style={{ color: "#CC313D", width: 182, height: 102 }}>
-                Sección especial
-              </span>
+              <span style={{ color: "#CC313D" }}>Sección especial</span>
               <span style={{ color: "#7C8598" }}>
                 Un juego de ficción · cartas con distintos heterónimos
               </span>
@@ -191,8 +186,6 @@ export default async function HomePage() {
                 margin: 0,
                 color: "#FBF7F3",
                 maxWidth: 940,
-                width: 542,
-                height: 90,
               }}
             >
               Cartas a la sociedad de terolingüistas
@@ -204,8 +197,6 @@ export default async function HomePage() {
                 gap: 40,
                 alignItems: "end",
                 marginTop: 30,
-                width: 1018,
-                height: 182,
               }}
             >
               <p

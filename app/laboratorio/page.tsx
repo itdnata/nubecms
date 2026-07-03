@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getCourses } from "@/lib/data";
 import { TopBack, SectionLabel } from "../_components/ui";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 export default async function LaboratorioPage() {
   const courses = await getCourses();

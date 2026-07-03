@@ -4,7 +4,7 @@ import { getLetter } from "@/lib/data";
 import { TopBack } from "../../_components/ui";
 import type { LetterLine } from "@/lib/types";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 function fileNameFor(title: string, fileName: string | null): string {
   if (fileName) return fileName;

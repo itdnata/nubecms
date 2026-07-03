@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { getSupabase } from "@/lib/supabase";
 
 export type RegistroState =
@@ -63,6 +64,9 @@ export async function submitCarta(
     is_published: true,
   });
   if (error) return { status: "error", message: error.message };
+
+  // Refresca la lista de cartas (cacheada por ISR) para que la nueva aparezca ya.
+  revalidatePath("/cartas");
 
   return { status: "ok", firma, titulo };
 }

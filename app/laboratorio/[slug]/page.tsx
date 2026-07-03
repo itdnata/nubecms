@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getCourse } from "@/lib/data";
 import { TopBack } from "../../_components/ui";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 export default async function CursoPage({
   params,

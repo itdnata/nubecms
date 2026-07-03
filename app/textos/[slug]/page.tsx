@@ -4,7 +4,7 @@ import { getPost } from "@/lib/data";
 import { Highlight } from "../../_components/Highlight";
 import type { PostBlock } from "@/lib/types";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 const MESES = [
   "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",

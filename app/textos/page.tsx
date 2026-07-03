@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getPosts, getReviews, getNotes } from "@/lib/data";
 import { TopBack, SectionLabel, ImagePlaceholder } from "../_components/ui";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 export default async function TextosPage() {
   const [posts, reviews, notes] = await Promise.all([
