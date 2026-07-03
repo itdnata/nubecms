@@ -11,7 +11,7 @@ export default async function LaboratorioPage() {
     <div>
       <TopBack href="/">← volver al índice</TopBack>
 
-      <header style={{ maxWidth: 1120, margin: "0 auto", padding: "44px 40px 40px" }}>
+      <header className="avn-container" style={{ maxWidth: 1120, margin: "0 auto", padding: "44px 40px 40px" }}>
         <div
           style={{
             fontFamily: "'IBM Plex Mono', monospace",
@@ -28,7 +28,7 @@ export default async function LaboratorioPage() {
           style={{
             fontFamily: "Georgia, serif",
             fontWeight: 700,
-            fontSize: 96,
+            fontSize: "clamp(42px, 10vw, 96px)",
             lineHeight: 0.9,
             letterSpacing: "-0.04em",
             margin: 0,
@@ -52,9 +52,10 @@ export default async function LaboratorioPage() {
         </p>
       </header>
 
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "12px 40px 0" }}>
+      <section className="avn-container" style={{ maxWidth: 1120, margin: "0 auto", padding: "12px 40px 0" }}>
         <SectionLabel>En curso</SectionLabel>
         <div
+          className="avn-stack"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
@@ -173,6 +174,7 @@ export default async function LaboratorioPage() {
       </section>
 
       <footer
+        className="avn-container"
         style={{
           maxWidth: 1120,
           margin: "60px auto 0",

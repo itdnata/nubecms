@@ -1,10 +1,16 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { NavMenu } from "./_components/NavMenu";
 
 export const metadata: Metadata = {
   title: "A vuelo de nube",
   description:
     "Ensayos, reseñas y curiosidades para leer sin prisa. Un cuaderno personal.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -28,6 +34,7 @@ export default function RootLayout({
       </head>
       <body>
         <ChromeBar />
+        <NavMenu />
         {children}
       </body>
     </html>
@@ -38,6 +45,7 @@ export default function RootLayout({
 function ChromeBar() {
   return (
     <div
+      className="avn-chrome"
       style={{
         position: "sticky",
         top: 0,
@@ -69,6 +77,7 @@ function ChromeBar() {
         }}
       />
       <span
+        className="avn-chrome-meta"
         style={{
           marginLeft: "auto",
           fontSize: 11,

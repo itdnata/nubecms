@@ -21,7 +21,7 @@ export default async function InscribirsePage({
         ← volver al laboratorio
       </TopBack>
 
-      <header style={{ maxWidth: 860, margin: "0 auto", padding: "44px 40px 36px" }}>
+      <header className="avn-container" style={{ maxWidth: 860, margin: "0 auto", padding: "44px 40px 36px" }}>
         <div
           style={{
             fontFamily: "'IBM Plex Mono', monospace",
@@ -38,7 +38,7 @@ export default async function InscribirsePage({
           style={{
             fontFamily: "Georgia, serif",
             fontWeight: 700,
-            fontSize: 62,
+            fontSize: "clamp(38px, 9vw, 62px)",
             lineHeight: 0.94,
             letterSpacing: "-0.035em",
             margin: 0,

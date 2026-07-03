@@ -11,7 +11,7 @@ export default async function HomePage() {
     : "linear-gradient(rgba(251,247,243,0.28), rgba(251,247,243,0.28))";
 
   return (
-    <main style={{ maxWidth: 1120, margin: "0 auto", padding: "0 40px 90px" }}>
+    <main className="avn-container" style={{ maxWidth: 1120, margin: "0 auto", padding: "0 40px 90px" }}>
       {/* MASTHEAD */}
       <section
         style={{
@@ -46,13 +46,12 @@ export default async function HomePage() {
           style={{
             fontFamily: "Georgia, serif",
             fontWeight: 700,
-            fontSize: 104,
+            fontSize: "clamp(52px, 12vw, 104px)",
             lineHeight: 0.9,
             letterSpacing: "-0.04em",
             margin: 0,
             color: "#2C303A",
-            width: 447,
-            height: 222,
+            maxWidth: 447,
             textAlign: "center",
           }}
         >
@@ -72,70 +71,6 @@ export default async function HomePage() {
           pensar en voz alta, guardar hallazgos y mirar de vez en cuando hacia
           arriba.
         </p>
-        <nav
-          style={{
-            position: "fixed",
-            top: 60,
-            left: "50%",
-            transform: "translateX(-50%)",
-            zIndex: 30,
-            display: "inline-flex",
-            gap: 4,
-            background: "#FFFFFF",
-            border: "1px solid #E4DED6",
-            borderRadius: 999,
-            padding: 6,
-            boxShadow: "0 10px 34px rgba(44,48,58,0.12)",
-            fontFamily: "'IBM Plex Mono', monospace",
-          }}
-        >
-          <Link
-            href="/textos"
-            className="avn-nav-link"
-            style={{
-              padding: "9px 18px",
-              borderRadius: 999,
-              color: "#565E70",
-              textDecoration: "none",
-              fontSize: 11,
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-            }}
-          >
-            Textos
-          </Link>
-          <Link
-            href="/laboratorio"
-            className="avn-nav-link"
-            style={{
-              padding: "9px 18px",
-              borderRadius: 999,
-              color: "#565E70",
-              textDecoration: "none",
-              fontSize: 11,
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-            }}
-          >
-            Laboratorio
-          </Link>
-          <Link
-            href="/cartas"
-            className="avn-nav-cta"
-            style={{
-              padding: "9px 18px",
-              borderRadius: 999,
-              background: "#CC313D",
-              color: "#FBF7F3",
-              textDecoration: "none",
-              fontSize: 11,
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-            }}
-          >
-            Cartas
-          </Link>
-        </nav>
       </section>
 
       {/* SECCIÓN ESPECIAL: CARTAS */}
@@ -153,6 +88,7 @@ export default async function HomePage() {
           }}
         >
           <div
+            className="avn-container"
             style={{
               maxWidth: 1120,
               margin: "0 auto",
@@ -180,7 +116,7 @@ export default async function HomePage() {
               style={{
                 fontFamily: "Georgia, serif",
                 fontWeight: 700,
-                fontSize: 62,
+                fontSize: "clamp(38px, 7vw, 62px)",
                 lineHeight: 0.98,
                 letterSpacing: "-0.03em",
                 margin: 0,
@@ -191,6 +127,7 @@ export default async function HomePage() {
               Cartas a la sociedad de terolingüistas
             </h2>
             <div
+              className="avn-stack"
               style={{
                 display: "grid",
                 gridTemplateColumns: "1fr auto",

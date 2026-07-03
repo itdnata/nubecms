@@ -41,7 +41,7 @@ export default async function CartaPage({
         ← volver a las cartas
       </TopBack>
 
-      <div style={{ maxWidth: 860, margin: "30px auto 0", padding: "0 40px 70px" }}>
+      <div className="avn-container" style={{ maxWidth: 860, margin: "30px auto 0", padding: "0 40px 70px" }}>
         <div
           style={{
             border: "1px solid #E4DED6",
@@ -159,6 +159,7 @@ export default async function CartaPage({
       </div>
 
       <footer
+        className="avn-container"
         style={{
           maxWidth: 860,
           margin: "0 auto",

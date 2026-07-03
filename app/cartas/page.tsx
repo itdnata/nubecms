@@ -19,7 +19,7 @@ export default async function CartasPage() {
       <TopBack href="/">← volver al índice</TopBack>
 
       {/* HEADER */}
-      <header style={{ maxWidth: 1120, margin: "0 auto", padding: "44px 40px 40px" }}>
+      <header className="avn-container" style={{ maxWidth: 1120, margin: "0 auto", padding: "44px 40px 40px" }}>
         <div
           style={{
             fontFamily: "'IBM Plex Mono', monospace",
@@ -36,7 +36,7 @@ export default async function CartasPage() {
           style={{
             fontFamily: "Georgia, serif",
             fontWeight: 700,
-            fontSize: 84,
+            fontSize: "clamp(40px, 9.5vw, 84px)",
             lineHeight: 0.92,
             letterSpacing: "-0.035em",
             margin: 0,
@@ -70,8 +70,9 @@ export default async function CartasPage() {
       </header>
 
       {/* CÓMO FUNCIONA */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "12px 40px 0" }}>
+      <section className="avn-container" style={{ maxWidth: 1120, margin: "0 auto", padding: "12px 40px 0" }}>
         <div
+          className="avn-stack"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
@@ -112,7 +113,7 @@ export default async function CartasPage() {
       </section>
 
       {/* CARTAS LIST */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "56px 40px 0" }}>
+      <section className="avn-container" style={{ maxWidth: 1120, margin: "0 auto", padding: "56px 40px 0" }}>
         <div
           style={{
             fontFamily: "'IBM Plex Mono', monospace",
@@ -130,6 +131,7 @@ export default async function CartasPage() {
         {cartas.map((c) => (
           <article
             key={c.id}
+            className="avn-stack"
             style={{
               display: "grid",
               gridTemplateColumns: "220px 1fr 130px",
@@ -233,6 +235,7 @@ export default async function CartasPage() {
         }}
       >
         <div
+          className="avn-container avn-stack"
           style={{
             maxWidth: 1120,
             margin: "0 auto",
@@ -260,7 +263,7 @@ export default async function CartasPage() {
               style={{
                 fontFamily: "Georgia, serif",
                 fontWeight: 700,
-                fontSize: 46,
+                fontSize: "clamp(32px, 6vw, 46px)",
                 lineHeight: 1.0,
                 letterSpacing: "-0.025em",
                 margin: 0,
@@ -303,6 +306,7 @@ export default async function CartasPage() {
       </section>
 
       <footer
+        className="avn-container"
         style={{
           maxWidth: 1120,
           margin: "0 auto",

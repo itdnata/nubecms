@@ -18,7 +18,7 @@ export default async function CursoPage({
     <div>
       <TopBack href="/laboratorio">← volver al laboratorio</TopBack>
 
-      <header style={{ maxWidth: 1120, margin: "0 auto", padding: "44px 40px 40px" }}>
+      <header className="avn-container" style={{ maxWidth: 1120, margin: "0 auto", padding: "44px 40px 40px" }}>
         <div
           style={{
             fontFamily: "'IBM Plex Mono', monospace",
@@ -35,7 +35,7 @@ export default async function CursoPage({
           style={{
             fontFamily: "Georgia, serif",
             fontWeight: 700,
-            fontSize: 72,
+            fontSize: "clamp(38px, 9vw, 72px)",
             lineHeight: 0.94,
             letterSpacing: "-0.035em",
             margin: 0,
@@ -60,6 +60,7 @@ export default async function CursoPage({
       </header>
 
       <div
+        className="avn-container avn-stack"
         style={{
           maxWidth: 1120,
           margin: "0 auto",
@@ -138,6 +139,7 @@ export default async function CursoPage({
 
         {/* ASIDE FICHA */}
         <aside
+          className="avn-nosticky"
           style={{
             position: "sticky",
             top: 78,
@@ -202,6 +204,7 @@ export default async function CursoPage({
       </div>
 
       <footer
+        className="avn-container"
         style={{
           maxWidth: 1120,
           margin: "48px auto 0",

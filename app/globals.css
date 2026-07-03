@@ -51,3 +51,64 @@ a { color: inherit; }
 }
 .avn-textarea:focus { border-color: #CC313D; }
 .avn-textarea::placeholder { color: #B7B0A2; }
+
+/* ===== Menú de navegación global (píldora flotante) ===== */
+/* Escritorio: fija arriba a la derecha. Móvil: barra flotante abajo (tipo redes sociales). */
+.avn-menu {
+  position: fixed;
+  top: 60px;
+  right: 24px;
+  z-index: 30;
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  padding: 6px;
+  background: #FFFFFF;
+  border: 1px solid #E4DED6;
+  border-radius: 999px;
+  box-shadow: 0 10px 34px rgba(44, 48, 58, 0.12);
+  font-family: 'IBM Plex Mono', monospace;
+}
+.avn-menu-link {
+  padding: 9px 18px;
+  border-radius: 999px;
+  color: #565E70;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.avn-menu-link.avn-menu-cta { background: #CC313D; color: #FBF7F3; }
+
+/* ===== Utilidades responsive (móvil) ===== */
+@media (max-width: 768px) {
+  /* Menú → barra flotante abajo, centrada, ocupando el ancho cómodo */
+  .avn-menu {
+    top: auto;
+    bottom: 16px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 32px);
+    max-width: 420px;
+    justify-content: space-around;
+    gap: 2px;
+  }
+  .avn-menu-link { padding: 10px 8px; letter-spacing: 0.06em; font-size: 10.5px; }
+  /* Deja espacio para que la barra inferior no tape el contenido/footer */
+  body { padding-bottom: 84px; }
+
+  /* Grids a una sola columna y elementos sticky liberados */
+  .avn-stack { grid-template-columns: 1fr !important; }
+  .avn-nosticky { position: static !important; top: auto !important; }
+  /* Fuerza que el cuerpo (order:2) aparezca antes que el aside (order:1) al apilar */
+  .avn-mobile-first { order: -1 !important; }
+  /* Filas de acción flex (space-between) → apiladas */
+  .avn-stack-flex { flex-direction: column !important; align-items: stretch !important; gap: 18px; }
+  /* Padding lateral de contenedores 40px → 20px */
+  .avn-container { padding-left: 20px !important; padding-right: 20px !important; }
+  /* Ocultar el rótulo derecho de la barra superior en pantallas estrechas */
+  .avn-chrome-meta { display: none !important; }
+  .avn-chrome { gap: 12px !important; padding: 10px 16px !important; }
+}

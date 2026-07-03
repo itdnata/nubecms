@@ -19,7 +19,7 @@ export function EnviarForm() {
 
   if (state.status === "ok") {
     return (
-      <section style={{ maxWidth: 860, margin: "0 auto", padding: "0 40px 70px" }}>
+      <section className="avn-container" style={{ maxWidth: 860, margin: "0 auto", padding: "0 40px 70px" }}>
         <div style={{ background: "#2C303A", padding: "46px 44px" }}>
           <div
             style={{
@@ -80,7 +80,7 @@ export function EnviarForm() {
   }
 
   return (
-    <section style={{ maxWidth: 860, margin: "0 auto", padding: "0 40px 70px" }}>
+    <section className="avn-container" style={{ maxWidth: 860, margin: "0 auto", padding: "0 40px 70px" }}>
       <form
         action={formAction}
         style={{
@@ -126,6 +126,7 @@ export function EnviarForm() {
           }}
         >
           <div
+            className="avn-stack"
             style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}
           >
             <div style={{ display: "flex", flexDirection: "column", gap: 9 }}>
@@ -169,6 +170,7 @@ export function EnviarForm() {
             />
           </div>
           <div
+            className="avn-stack-flex"
             style={{
               display: "flex",
               justifyContent: "space-between",

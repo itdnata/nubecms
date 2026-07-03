@@ -11,7 +11,7 @@ export function TopBack({
   maxWidth?: number;
 }) {
   return (
-    <div style={{ maxWidth, margin: "0 auto", padding: "20px 40px 0" }}>
+    <div className="avn-container" style={{ maxWidth, margin: "0 auto", padding: "20px 40px 0" }}>
       <Link
         href={href}
         className="avn-back"

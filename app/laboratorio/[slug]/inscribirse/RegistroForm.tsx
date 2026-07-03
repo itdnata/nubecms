@@ -20,7 +20,7 @@ export function RegistroForm({ curso }: { curso: string }) {
 
   if (state.status === "ok") {
     return (
-      <section style={{ maxWidth: 860, margin: "0 auto", padding: "0 40px 70px" }}>
+      <section className="avn-container" style={{ maxWidth: 860, margin: "0 auto", padding: "0 40px 70px" }}>
         <div style={{ background: "#2C303A", padding: "46px 44px" }}>
           <div
             style={{
@@ -81,7 +81,7 @@ export function RegistroForm({ curso }: { curso: string }) {
   }
 
   return (
-    <section style={{ maxWidth: 860, margin: "0 auto", padding: "0 40px 70px" }}>
+    <section className="avn-container" style={{ maxWidth: 860, margin: "0 auto", padding: "0 40px 70px" }}>
       <form
         action={formAction}
         style={{
@@ -109,6 +109,7 @@ export function RegistroForm({ curso }: { curso: string }) {
           />
         </div>
         <div
+          className="avn-stack"
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
@@ -142,6 +143,7 @@ export function RegistroForm({ curso }: { curso: string }) {
           </div>
         </div>
         <div
+          className="avn-stack-flex"
           style={{
             display: "flex",
             justifyContent: "space-between",

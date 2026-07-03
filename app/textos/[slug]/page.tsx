@@ -263,7 +263,7 @@ export default async function ArticlePage({
             style={{
               fontFamily: "Georgia, serif",
               fontWeight: 700,
-              fontSize: 92,
+              fontSize: "clamp(40px, 11vw, 92px)",
               lineHeight: 0.92,
               letterSpacing: "-0.035em",
               margin: 0,
@@ -306,6 +306,7 @@ export default async function ArticlePage({
 
       {/* BODY + ASIDE */}
       <div
+        className="avn-container avn-stack"
         style={{
           maxWidth: 1120,
           margin: "0 auto",
@@ -317,6 +318,7 @@ export default async function ArticlePage({
         }}
       >
         <div
+          className="avn-mobile-first"
           style={{
             order: 2,
             fontFamily: "Georgia, serif",
@@ -332,6 +334,7 @@ export default async function ArticlePage({
         </div>
 
         <aside
+          className="avn-nosticky"
           style={{
             order: 1,
             position: "sticky",
@@ -440,6 +443,7 @@ export default async function ArticlePage({
       </div>
 
       <footer
+        className="avn-container"
         style={{
           maxWidth: 1120,
           margin: "48px auto 0",
