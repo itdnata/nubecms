@@ -1,18 +1,27 @@
 import { getSupabase } from './supabase'
-import type { Post, Review, Note, Course, Letter } from './types'
+import type { Post, Review, Note, Course, Letter, Media } from './types'
+
+const POST_SELECT = '*, cover:media(*)'
 
 export async function getPosts(): Promise<Post[]> {
   const sb = getSupabase()
-  const { data, error } = await sb.from('posts').select('*').order('sort_order')
+  const { data, error } = await sb.from('posts').select(POST_SELECT).order('sort_order')
   if (error) throw error
   return (data ?? []) as Post[]
 }
 
 export async function getPost(slug: string): Promise<Post | null> {
   const sb = getSupabase()
-  const { data, error } = await sb.from('posts').select('*').eq('slug', slug).maybeSingle()
+  const { data, error } = await sb.from('posts').select(POST_SELECT).eq('slug', slug).maybeSingle()
   if (error) throw error
   return (data as Post) ?? null
+}
+
+export async function getMediaByPath(path: string): Promise<Media | null> {
+  const sb = getSupabase()
+  const { data, error } = await sb.from('media').select('*').eq('path', path).maybeSingle()
+  if (error) throw error
+  return (data as Media) ?? null
 }
 
 export async function getReviews(): Promise<Review[]> {

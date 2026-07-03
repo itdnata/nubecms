@@ -1,9 +1,15 @@
 import Link from "next/link";
 import { Highlight } from "./_components/Highlight";
+import { getMediaByPath } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const masthead = await getMediaByPath("covers/portada-nubes-wide.png");
+  const mastheadBg = masthead
+    ? `linear-gradient(rgba(251,247,243,0.28), rgba(251,247,243,0.28)), url('${masthead.public_url}')`
+    : "linear-gradient(rgba(251,247,243,0.28), rgba(251,247,243,0.28))";
+
   return (
     <main style={{ maxWidth: 1120, margin: "0 auto", padding: "0 40px 90px" }}>
       {/* MASTHEAD */}
@@ -19,8 +25,7 @@ export default function HomePage() {
           justifyContent: "center",
           textAlign: "center",
           padding: "60px 20px 50px",
-          background:
-            "linear-gradient(rgba(251,247,243,0.28), rgba(251,247,243,0.28)), url('/assets/portada-nubes-wide.png')",
+          background: mastheadBg,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

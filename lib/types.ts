@@ -6,6 +6,21 @@ export type PostBlock =
   | { type: 'h2'; text: string }
   | { type: 'end' }
 
+export type Media = {
+  id: string
+  bucket: string
+  path: string
+  filename: string
+  public_url: string
+  alt: string | null
+  caption: string | null
+  width: number | null
+  height: number | null
+  size_bytes: number | null
+  content_type: string | null
+  kind: string | null
+}
+
 export type Post = {
   id: string
   slug: string
@@ -25,6 +40,8 @@ export type Post = {
   body: PostBlock[]
   published_at: string | null
   sort_order: number
+  cover_media_id: string | null
+  cover?: Media | null
 }
 
 export type Review = {

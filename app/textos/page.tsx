@@ -122,7 +122,21 @@ export default async function TextosPage() {
                   {post.dek}
                 </p>
               </div>
-              <ImagePlaceholder label={`imagen — ${post.seq}`} />
+              {post.cover ? (
+                <div
+                  role="img"
+                  aria-label={post.cover.alt ?? post.title}
+                  style={{
+                    position: "relative",
+                    minHeight: 210,
+                    backgroundImage: `url('${post.cover.public_url}')`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                />
+              ) : (
+                <ImagePlaceholder label={`imagen — ${post.seq}`} />
+              )}
             </article>
           </Link>
         ))}

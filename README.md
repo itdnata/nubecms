@@ -1,8 +1,8 @@
 # A vuelo de nube — nubecms
 
 Blog personal *"A vuelo de nube"* construido con **Next.js 16** (App Router, TypeScript) y
-**Supabase** (Postgres) como backend. Reproduce con fidelidad el mockup de diseño ubicado en
-[`design/A vuelo de nube.dc.html`](design/).
+**Supabase** (Postgres + Storage) como backend. Reproduce con fidelidad el mockup de diseño
+original (conservado en el historial de git).
 
 ## Stack
 
@@ -21,9 +21,9 @@ app/                     Rutas (una por vista del mockup)
   actions.ts             Server Actions (inscripción y enviar carta)
   _components/           Highlight, TopBack, SectionLabel, ImagePlaceholder
 lib/                     Cliente Supabase, tipos y funciones de datos
-supabase/migrations/     Esquema + RLS (0001) y seed del contenido (0002)
+supabase/migrations/     Esquema+RLS (0001), seed (0002), media+Storage (0003)
 scripts/migrate.mjs      Runner de migraciones (session pooler, IPv4)
-design/                  Mockup original .dc.html (referencia)
+scripts/upload-media.mjs Sube portadas a Storage (usa service_role, uso puntual)
 ```
 
 ## Puesta en marcha
@@ -51,6 +51,9 @@ design/                  Mockup original .dc.html (referencia)
 - `courses` — laboratorio (cursos/talleres) con `body`/`temario`/`ficha`.
 - `letters` — cartas (sección especial); las enviadas por usuarios entran con `is_new`.
 - `course_signups` — inscripciones (solo escritura pública).
+- `media` — catálogo de imágenes (bucket público `media` en Supabase Storage). `posts.cover_media_id`
+  referencia la portada del artículo. Las lecturas son por URL pública del CDN de Supabase (no gasta
+  Vercel); las subidas se hacen server-side con la `service_role` (ver `scripts/upload-media.mjs`).
 
 RLS: lectura pública del contenido; `letters` y `course_signups` aceptan inserción pública;
 `course_signups` no tiene lectura pública (datos personales).

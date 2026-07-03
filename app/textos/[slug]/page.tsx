@@ -145,6 +145,11 @@ export default async function ArticlePage({
   const post = await getPost(slug);
   if (!post) notFound();
 
+  const cover = post.cover ?? null;
+  const heroBg = cover
+    ? `url('${cover.public_url}')`
+    : "repeating-linear-gradient(135deg, #E7E0F0, #E7E0F0 20px, #DCE2F0 20px, #DCE2F0 40px)";
+
   return (
     <article>
       {/* HERO */}
@@ -153,8 +158,9 @@ export default async function ArticlePage({
           position: "relative",
           width: "100%",
           minHeight: "94vh",
-          background:
-            "repeating-linear-gradient(135deg, #E7E0F0, #E7E0F0 20px, #DCE2F0 20px, #DCE2F0 40px)",
+          background: heroBg,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
           display: "flex",
           flexDirection: "column",
           overflow: "hidden",
@@ -215,20 +221,22 @@ export default async function ArticlePage({
             justifyContent: "center",
           }}
         >
-          <span
-            style={{
-              fontFamily: "'IBM Plex Mono', monospace",
-              fontSize: 10.5,
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              color: "#6B7280",
-              opacity: 0.5,
-              border: "1px solid rgba(86,94,112,0.35)",
-              padding: "8px 14px",
-            }}
-          >
-            imagen — fotografía de portada · arrastra la tuya
-          </span>
+          {!cover && (
+            <span
+              style={{
+                fontFamily: "'IBM Plex Mono', monospace",
+                fontSize: 10.5,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: "#6B7280",
+                opacity: 0.5,
+                border: "1px solid rgba(86,94,112,0.35)",
+                padding: "8px 14px",
+              }}
+            >
+              imagen — fotografía de portada · arrastra la tuya
+            </span>
+          )}
         </div>
 
         <div
